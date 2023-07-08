@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-unit-test-jest": {
+    "angular-dexie-test": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-unit-test-jest",
+            "outputPath": "dist/angular-dexie-test",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-unit-test-jest:build:production"
+              "browserTarget": "angular-dexie-test:build:production"
             },
             "development": {
-              "browserTarget": "angular-unit-test-jest:build:development"
+              "browserTarget": "angular-dexie-test:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,11 +78,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-unit-test-jest:build"
+            "browserTarget": "angular-dexie-test:build"
           }
         }
       }
     }
   },
-  "defaultProject": "angular-unit-test-jest"
+  "defaultProject": "angular-dexie-test"
 }
