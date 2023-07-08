@@ -1,0 +1,48 @@
+<div class="container">
+  <h3 class="teal-text center-align">Todo App</h3>
+  <form class="add-item-form">
+    <input
+      type="text"
+      id="taskInput"
+      #taskInput
+      class="itemField"
+      placeholder="What do you want to do today?"
+      required
+    />
+    <button
+      type="submit"
+      class="waves-effect btn teal right"
+      (click)="todoDB.addTask($event, taskInput)"
+    >
+      Add
+    </button>
+  </form>
+
+  <div class="card white darken-1">
+    <div class="card-content" *ngIf="allItems$ | async">
+      <ng-container *ngIf="allItems$ | async as allItems">
+        <div class="row" *ngFor="let item of allItems">
+          <p class="col s10">
+            <label>
+              <input
+                #checkBoxTodo
+                type="checkbox"
+                [checked]="item.completed"
+                class="checkbox-blue"
+                (change)="todoDB.toggleStatus(item.id, checkBoxTodo)"
+              />
+              <span [ngClass]="{ 'strike-text': item.completed }">{{
+                item.task
+              }}</span>
+            </label>
+          </p>
+          <i
+            class="col s2 material-icons delete-button"
+            (click)="todoDB.deleteTask(item.id)"
+            >delete</i
+          >
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
